@@ -6,8 +6,5 @@ GitHub's [larger Linux runners support running hardware accelerated emulators](h
 
 ```
 - name: Enable KVM group perms
-  run: |
-    echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-    sudo udevadm control --reload-rules
-    sudo udevadm trigger --name-match=kvm
+  uses: ndtp/enable-kvm-action@v1
 ```
